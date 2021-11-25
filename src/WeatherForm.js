@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "./WeatherForm.css";
+import WeatherResults from "./WeatherResults.js";
 
 export default function WeatherForm() {
   let [city, changeCity] = useState(null);
@@ -45,16 +46,17 @@ export default function WeatherForm() {
 
   return (
     <div>
-      <form>
+      <form className="WeatherForm">
         <input type="search" placeholder="Enter a city" onChange={setCity} />
         <input
           type="submit"
-          className="btn btn-primary"
+          className="btn btn-primary ms-1"
           value="Search"
           onClick={searchWeather}
         />
       </form>
       {weatherMessage}
+      <WeatherResults />
     </div>
   );
 }

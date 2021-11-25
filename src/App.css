@@ -1,5 +1,9 @@
 .App {
-  text-align: center;
   border: 1px solid black;
-  margin: 90px 120px;
+  margin: 100px 200px;
+  padding-top: 30px;
+}
+
+.App h1 {
+  text-align: center;
 }
