@@ -4,4 +4,11 @@
 
 img {
   height: 70px;
+  position: relative;
+  top: -15px;
+}
+
+.degrees {
+  position: relative;
+  top: -28px;
 }

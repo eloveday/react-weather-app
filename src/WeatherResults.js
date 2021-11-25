@@ -18,8 +18,9 @@ export default function WeatherResults() {
             <li>Wind: 75 kph</li>
           </ul>
         </div>
-        <div className="col text-center temperature">
-          10C{" "}
+        <div className="col text-center">
+          <span className="temperature">10</span>
+          <span className="degrees">°C</span>{" "}
           <img
             src="http://openweathermap.org/img/wn/01d.png"
             alt="weather-icon"
