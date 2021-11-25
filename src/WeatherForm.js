@@ -47,7 +47,12 @@ export default function WeatherForm() {
     <div>
       <form>
         <input type="search" placeholder="Enter a city" onChange={setCity} />
-        <input type="submit" value="Search" onClick={searchWeather} />
+        <input
+          type="submit"
+          className="btn btn-primary"
+          value="Search"
+          onClick={searchWeather}
+        />
       </form>
       {weatherMessage}
     </div>

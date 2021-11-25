@@ -1,5 +1,6 @@
 import "./App.css";
 import WeatherForm from "./WeatherForm.js";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 export default function App() {
   return (
