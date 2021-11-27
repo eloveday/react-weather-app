@@ -1,41 +1,27 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "./WeatherForm.css";
-import WeatherResults from "./WeatherResults.js";
 
 export default function WeatherForm() {
   let [city, changeCity] = useState(null);
   let [weatherMessage, showWeather] = useState(null);
+
+  let [defaultTemp, changeTemp] = useState(10);
+  let [defaultDescription, changeDescription] = useState("Cloudy");
+  let [defaultHumidity, changeHumidity] = useState(75);
+  let [defaultWind, changeWind] = useState(72);
+  let [defaultCity, displayCityName] = useState("London");
 
   function setCity(cityName) {
     let newCityName = cityName.target.value;
     changeCity(newCityName);
   }
   function displayWeather(response) {
-    showWeather(
-      <div className="weather-results">
-        <ul>
-          <li>
-            <b>Temperature:</b> {Math.round(response.data.main.temp)}°C
-          </li>
-          <li>
-            <b>Description:</b> {response.data.weather[0].description}
-          </li>
-          <li>
-            <b>Humidity:</b> {response.data.main.humidity}%
-          </li>
-          <li>
-            <b>Wind:</b> {response.data.wind.speed}km/h
-          </li>
-          <li>
-            <img
-              src={`http://openweathermap.org/img/wn/${response.data.weather[0].icon}.png`}
-              alt="Weather Icon"
-            />
-          </li>
-        </ul>
-      </div>
-    );
+    changeTemp(Math.round(response.data.main.temp));
+    changeDescription(response.data.weather[0].description);
+    changeHumidity(response.data.main.humidity);
+    changeWind(Math.round(response.data.wind.speed));
+    displayCityName(response.data.name);
   }
   function searchWeather(event) {
     event.preventDefault();
@@ -56,7 +42,31 @@ export default function WeatherForm() {
         />
       </form>
       {weatherMessage}
-      <WeatherResults />
+      <div className="container">
+        <div className="row mt-2">
+          <div className="col text-center">
+            <h2>{defaultCity}</h2>
+          </div>
+          <div className="col text-center">Friday 17:00</div>
+        </div>
+        <div className="row">
+          <div className="col text-center">
+            <ul>
+              <li className="text-capitalize">{defaultDescription}</li>
+              <li>Humidity: {defaultHumidity}%</li>
+              <li>Wind speed: {defaultWind} kph</li>
+            </ul>
+          </div>
+          <div className="col text-center">
+            <span className="temperature">{defaultTemp}</span>
+            <span className="degrees">°C</span>{" "}
+            <img
+              src="http://openweathermap.org/img/wn/01d.png"
+              alt="weather-icon"
+            />
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
