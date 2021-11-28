@@ -1,5 +1,6 @@
 import React from "react";
-import DateFormatting from "./DateFormatting.js";
+import "./WeatherResult.css";
+
 export default function WeatherResult(props) {
   return (
     <div className="container">
@@ -7,9 +8,7 @@ export default function WeatherResult(props) {
         <div className="col text-center">
           <h2>{props.info.city}</h2>
         </div>
-        <div className="col text-center">
-          <DateFormatting date={props.info.date} />
-        </div>
+        <div className="col text-center"></div>
       </div>
       <div className="row">
         <div className="col text-center">
@@ -19,7 +18,7 @@ export default function WeatherResult(props) {
             <li>Wind speed: {props.info.wind} kph</li>
           </ul>
         </div>
-        <div className="col text-center">
+        <div className="col text-center tempLine">
           <span className="temperature">{props.info.temperature}</span>
           <span className="degrees">°C</span>{" "}
           <img src={props.info.icon} alt="weather-icon" />

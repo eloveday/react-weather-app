@@ -1,0 +1,18 @@
+.temperature {
+  font-size: 60px;
+}
+.degrees {
+  position: relative;
+  top: -22px;
+}
+
+img {
+  position: relative;
+  top: -15px;
+  height: 100px;
+  width: 100px;
+}
+
+.tempLine {
+  line-height: 50px;
+}

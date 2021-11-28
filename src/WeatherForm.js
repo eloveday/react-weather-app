@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import "./WeatherForm.css";
 import WeatherResult from "./WeatherResult";
+import DateFormatting from "./DateFormatting.js";
 
 export default function WeatherForm(props) {
   let [city, changeCity] = useState(props.defaultCity);
@@ -36,16 +37,29 @@ export default function WeatherForm(props) {
   if (weatherData.ready) {
     return (
       <div>
-        <form className="WeatherForm">
-          <input type="search" placeholder="Enter a city" onChange={setCity} />
-          <input
-            type="submit"
-            className="btn btn-primary ms-1"
-            value="Search"
-            onClick={handleClick}
-          />
-        </form>
-
+        <div className="date">
+          <DateFormatting date={weatherData.date} />
+        </div>
+        <div className="container">
+          <form className="WeatherForm">
+            <div className="row">
+              <div className="col">
+                {" "}
+                <input
+                  type="search"
+                  placeholder="Enter a city"
+                  onChange={setCity}
+                />{" "}
+                <input
+                  type="submit"
+                  className="btn btn-primary ms-1"
+                  value="Search"
+                  onClick={handleClick}
+                />
+              </div>
+            </div>
+          </form>
+        </div>
         <WeatherResult info={weatherData} />
       </div>
     );

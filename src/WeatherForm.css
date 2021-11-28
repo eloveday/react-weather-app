@@ -1,7 +1,6 @@
 ul {
   list-style-type: none;
 }
-
-.WeatherForm {
-  text-align: center;
+.date {
+  padding: 10px;
 }

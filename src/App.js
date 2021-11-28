@@ -5,8 +5,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 export default function App() {
   return (
     <div className="App">
-      <h1>Weather App</h1>
       <WeatherForm defaultCity="London" />
+
       <p className="text-center">
         Source code at{" "}
         <a href="https://github.com/eloveday/react-weather-app">Github</a>
