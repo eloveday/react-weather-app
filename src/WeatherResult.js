@@ -1,4 +1,5 @@
 import React from "react";
+import DateFormatting from "./DateFormatting.js";
 export default function WeatherResult(props) {
   return (
     <div className="container">
@@ -6,7 +7,9 @@ export default function WeatherResult(props) {
         <div className="col text-center">
           <h2>{props.info.city}</h2>
         </div>
-        <div className="col text-center">Friday 17:00</div>
+        <div className="col text-center">
+          <DateFormatting date={props.info.date} />
+        </div>
       </div>
       <div className="row">
         <div className="col text-center">

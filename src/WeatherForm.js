@@ -16,6 +16,7 @@ export default function WeatherForm(props) {
       wind: Math.round(response.data.wind.speed),
       city: response.data.name,
       icon: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}.png`,
+      date: new Date(response.data.dt * 1000),
     });
   }
   function Search() {
