@@ -6,7 +6,7 @@ export default function App() {
   return (
     <div className="App">
       <h1>Weather App</h1>
-      <WeatherForm />
+      <WeatherForm defaultCity="London" />
       <p className="text-center">
         Source code at{" "}
         <a href="https://github.com/eloveday/react-weather-app">Github</a>
