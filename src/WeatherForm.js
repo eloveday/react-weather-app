@@ -3,6 +3,7 @@ import axios from "axios";
 import "./WeatherForm.css";
 import WeatherResult from "./WeatherResult";
 import DateFormatting from "./DateFormatting.js";
+import Forecast from "./Forecast.js";
 
 export default function WeatherForm(props) {
   let [city, changeCity] = useState(props.defaultCity);
@@ -18,6 +19,8 @@ export default function WeatherForm(props) {
       city: response.data.name,
       icon: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}.png`,
       date: new Date(response.data.dt * 1000),
+      latitude: response.data.coord.lat,
+      longitude: response.data.coord.lon,
     });
   }
   function Search() {
@@ -61,6 +64,7 @@ export default function WeatherForm(props) {
           </form>
         </div>
         <WeatherResult info={weatherData} />
+        <Forecast info={weatherData} />
       </div>
     );
   } else {
