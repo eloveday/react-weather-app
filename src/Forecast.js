@@ -1,17 +1,13 @@
 import axios from "axios";
 import React, { useState } from "react";
+import ForecastDay from "./ForecastDay.js";
 
 export default function Forecast(props) {
   let [ready, setReady] = useState(false);
   let [forecastData, setForecastData] = useState(null);
 
   function displayForecast(response) {
-    console.log(response.data);
-    setForecastData({
-      minTemp: Math.round(response.data.daily[0].temp.min),
-      maxTemp: Math.round(response.data.daily[0].temp.max),
-      icon: `http://openweathermap.org/img/wn/${response.data.daily[0].weather[0].icon}.png`,
-    });
+    setForecastData(response.data.daily);
     setReady(true);
   }
 
@@ -24,25 +20,7 @@ export default function Forecast(props) {
   }
 
   if (ready) {
-    return (
-      <div className="Forecast">
-        <div className="container">
-          <div className="row">
-            <div className="col">{forecastData.day}</div>
-          </div>
-          <div className="row">
-            <div className="col">
-              <img src={forecastData.icon} alt="icon" />
-            </div>
-          </div>
-          <div className="row">
-            <div className="col">
-              {forecastData.minTemp}° {forecastData.maxTemp}°
-            </div>
-          </div>
-        </div>
-      </div>
-    );
+    return <ForecastDay data={forecastData[1]} />;
   } else {
     getForecast();
     return null;
