@@ -19,8 +19,7 @@ export default function WeatherForm(props) {
       city: response.data.name,
       icon: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}.png`,
       date: new Date(response.data.dt * 1000),
-      latitude: response.data.coord.lat,
-      longitude: response.data.coord.lon,
+      coordinates: response.data.coord,
     });
   }
   function Search() {
@@ -64,7 +63,7 @@ export default function WeatherForm(props) {
           </form>
         </div>
         <WeatherResult info={weatherData} />
-        <Forecast info={weatherData} />
+        <Forecast info={weatherData.coordinates} />
       </div>
     );
   } else {
