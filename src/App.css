@@ -2,10 +2,10 @@
   border: 1px solid black;
   border-radius: 10px;
   width: 600px;
-  height: 350px;
+  height: 370px;
   margin: 50px;
   padding-top: 10px;
-  max-width: 50%;
+
   display: block;
   background: radial-gradient(
     592px at 48.2% 50%,
